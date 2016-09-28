@@ -1,0 +1,31 @@
+#titulo{
+	background-color: darkgray;
+	width: 100%;
+	text-align: center;
+	padding: 15px 0;
+	font-size: 30px;
+	font-family: fantasy;
+}
+textarea{
+	border-radius: 5px;
+	width: 95%;
+	margin: 20px 0;
+	height: 100px;
+}
+.nuevo{
+	background-color: lightgray;
+	margin: 15px 0;
+	padding: 10px 15px;
+	width: 100%;
+	height: auto;
+}
+#contenedor{
+	margin: 15px 0;
+}
+.tachado{
+	text-decoration:line-through;
+}
+.icon{
+	float: right;
+	cursor: pointer;
+}
