@@ -1,9 +1,23 @@
 window.addEventListener("load", function() {
 	var btn = document.getElementById("btn");
+	btn.disabled=true;
 	var textarea = document.getElementById("textarea");
-	
+	textarea.addEventListener("keydown",function(){
+		validacion();
+	});
+	function validacion(){
+		var long = textarea.value.length;
+		var textSolo = textarea.value.replace(/\s/g,"");
+		if(long==0 || textSolo == 0){
+			btn.disabled=true;
+		}
+		else{
+			btn.disabled=false;
+		}
+	}
 	btn.addEventListener("click", function() {
 		agregarTarea();
+		btn.disabled=true;
 		textarea.value="";
 	});
 	function agregarTarea() {
@@ -30,7 +44,6 @@ window.addEventListener("load", function() {
 		function tachar(){
 			label.classList.toggle("tachado");
 		}
-		
 		icon.addEventListener("click", function() {
 			borrar();
 		});

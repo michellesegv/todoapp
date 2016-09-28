@@ -10,22 +10,29 @@ textarea{
 	border-radius: 5px;
 	width: 95%;
 	margin: 20px 0;
-	height: 100px;
 }
 .nuevo{
 	background-color: lightgray;
 	margin: 15px 0;
-	padding: 10px 15px;
+	padding: 15px 40px 15px 15px;
 	width: 100%;
 	height: auto;
+	word-wrap: break-word;
+	position: relative;
+	border-radius: 5px;
 }
 #contenedor{
 	margin: 15px 0;
+	height: 300px;
+	overflow-y: scroll;
+	overflow: auto;
 }
 .tachado{
 	text-decoration:line-through;
 }
 .icon{
-	float: right;
 	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 40%;
 }
