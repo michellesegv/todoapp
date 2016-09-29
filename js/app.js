@@ -2,7 +2,7 @@ window.addEventListener("load", function() {
 	var btn = document.getElementById("btn");
 	btn.disabled=true;
 	var textarea = document.getElementById("textarea");
-	textarea.addEventListener("keydown",function(){
+	textarea.addEventListener("keyup",function(){
 		validacion();
 	});
 	function validacion(){
@@ -17,8 +17,8 @@ window.addEventListener("load", function() {
 	}
 	btn.addEventListener("click", function() {
 		agregarTarea();
-		btn.disabled=true;
 		textarea.value="";
+		btn.disabled=true;
 	});
 	function agregarTarea() {
 		var contenido = textarea.value;
