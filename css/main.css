@@ -1,4 +1,7 @@
-#titulo{
+.app{
+	margin-top: 20px;
+}
+#title{
 	background-color: darkgray;
 	width: 100%;
 	text-align: center;
@@ -8,26 +11,25 @@
 }
 textarea{
 	border-radius: 5px;
-	width: 95%;
-	margin: 20px 0;
+	width: 90%;
+	margin: 20px auto;
+	display: block;
 }
-.nuevo{
+.new{
 	background-color: lightgray;
 	margin: 15px 0;
 	padding: 15px 40px 15px 15px;
 	width: 100%;
+	display: block;
 	height: auto;
 	word-wrap: break-word;
 	position: relative;
 	border-radius: 5px;
 }
-#contenedor{
+#container-to-do{
 	margin: 15px 0;
-	height: 300px;
-	overflow-y: scroll;
-	overflow: auto;
 }
-.tachado{
+.labeled{
 	text-decoration:line-through;
 }
 .icon{

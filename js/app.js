@@ -1,54 +1,59 @@
-window.addEventListener("load", function() {
-	var btn = document.getElementById("btn");
-	btn.disabled=true;
-	var textarea = document.getElementById("textarea");
-	textarea.addEventListener("keyup",function(){
-		validacion();
+$(document).ready(function() {
+	var btn = $('#btn');
+	btn.disabled = true;
+	var textarea = $('#textarea');
+	
+	textarea.keyup(function(){
+		validation();
 	});
-	function validacion(){
-		var long = textarea.value.length;
-		var textSolo = textarea.value.replace(/\s/g,"");
-		if(long==0 || textSolo == 0){
-			btn.disabled=true;
+	
+	function validation(){
+		var long = textarea.val().length;
+		var onlyText = textarea.val().replace(/\s/g,'');
+		if (long == 0 || onlyText == 0) {
+			btn.disabled = true;
 		}
-		else{
-			btn.disabled=false;
+		else {
+			btn.disabled = false;
 		}
 	}
-	btn.addEventListener("click", function() {
-		agregarTarea();
-		textarea.value="";
-		btn.disabled=true;
+	btn.click(function() {
+		addTask();
+		textarea.val('');
+		btn.disabled = true;
 	});
-	function agregarTarea() {
-		var contenido = textarea.value;
-		var contenedor = document.getElementById("contenedor");
-		var nuevaTarea= document.createElement("div");
-		nuevaTarea.classList.add("nuevo");
-		nuevaTarea.classList.add("checkbox");
-		contenedor.appendChild(nuevaTarea);
-		var label = document.createElement("label");
-		var check = document.createElement("input");
-		check.type = "checkbox";
-		label.appendChild(check);
-		nuevaTarea.appendChild(label);
-		var texto = document.createTextNode(contenido);
-		label.appendChild(texto);
-		var icon = document.createElement("span");
-		icon.classList.add("glyphicon","glyphicon-trash","icon");
-		nuevaTarea.appendChild(icon);
-		
-		check.addEventListener("click", function() {
-			tachar();
+	function addTask() {
+		var taskContent = textarea.val();
+		var containerToDo = $('#container-to-do');
+    var newTask = $('<div>');
+		newTask.addClass('new');
+		newTask.addClass('checkbox');
+		containerToDo.append(newTask);
+		var label = $('<label>');
+		var check = $('<input>');
+		check.attr('type','checkbox');
+		label.append(check);
+		newTask.append(label);
+		var text = $(document.createTextNode(taskContent));
+		label.append(text);
+		var icon = $('<i>');
+		icon.addClass('glyphicon glyphicon-trash icon');
+		newTask.append(icon);
+    
+    textarea.val('')
+
+		check.click(function() {
+			labeledTask();
 		});
-		function tachar(){
-			label.classList.toggle("tachado");
+		function labeledTask(){
+			label.toggleClass('labeled');
 		}
-		icon.addEventListener("click", function() {
-			borrar();
-		});
-		function borrar(){
-			contenedor.removeChild(nuevaTarea);
+		icon.click( function() {
+			deleteTask();
+    });
+    
+		function deleteTask(){
+			newTask.remove()
 		}
 	}
 });
