@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	var btn = $('#btn');
-	btn.disabled = true;
+	// btn.prop("disabled", true);
 	var textarea = $('#textarea');
 	
-	textarea.keyup(function(){
+	textarea.keyup(function(e){
 		validation();
 	});
 	
@@ -11,16 +11,16 @@ $(document).ready(function() {
 		var long = textarea.val().length;
 		var onlyText = textarea.val().replace(/\s/g,'');
 		if (long == 0 || onlyText == 0) {
-			btn.disabled = true;
+			// btn.removeAttr('disabled');
 		}
 		else {
-			btn.disabled = false;
+			// btn.prop("disabled", true);
 		}
 	}
 	btn.click(function() {
 		addTask();
 		textarea.val('');
-		btn.disabled = true;
+		//  btn.prop("disabled", true);
 	});
 	function addTask() {
 		var taskContent = textarea.val();
